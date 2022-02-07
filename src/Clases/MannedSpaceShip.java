@@ -28,23 +28,19 @@ public class MannedSpaceShip extends SpaceShip implements ISpaceShip {
     }
 
     @Override
-    public String reFuelSpaceShip() {
+    public void reFuelSpaceShip() {
         super.filledUpTank = true;
         System.out.println("La nave tripulada ha sido cargada con combustible.");
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        return null;
     }
 
     @Override
-    public String turnOnSpaceShip() {
+    public void turnOnSpaceShip() {
         if (super.filledUpTank == false){
             System.out.println("Es necesario poner combustible a la nave tripulada antes de encenderla.");
         } else{
             super.spaceShipTurnedOn = true;
             System.out.println("Nave tripulada encendida.");
         }
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        return null;
     }
 
     public int getCapacity() {
@@ -63,6 +59,5 @@ public class MannedSpaceShip extends SpaceShip implements ISpaceShip {
             System.out.println("Abordando tripulante " + (i + 1) + " ...");
         }
         System.out.println("Abordaje exitoso.");
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

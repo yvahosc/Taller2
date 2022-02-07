@@ -10,8 +10,6 @@ package Interfaces;
  * @author Yeisson Vahos Cortes
  */
 public interface ISpaceShip {
-    
-    
-    public String reFuelSpaceShip();
-    public String turnOnSpaceShip ();
+    public void reFuelSpaceShip();
+    public void turnOnSpaceShip ();
 }

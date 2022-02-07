@@ -28,23 +28,19 @@ public class unmannedSpaceShip extends SpaceShip implements ISpaceShip{
     }
 
     @Override
-    public String reFuelSpaceShip() {
+    public void reFuelSpaceShip() {
         super.filledUpTank = true;
         System.out.println("La nave no tripulada ha sido cargada con combustible.");
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        return null;
     }
 
     @Override
-    public String turnOnSpaceShip() {
+    public void turnOnSpaceShip() {
         if (super.filledUpTank == false){
             System.out.println("Es necesario poner combustible a la nave no tripulada antes de encenderla.");
         } else{
             super.spaceShipTurnedOn = true;
             System.out.println("Nave no tripulada encendida.");
         }
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        return null;
     }
 
     public float getPush() {
@@ -58,6 +54,5 @@ public class unmannedSpaceShip extends SpaceShip implements ISpaceShip{
     @Override
     public void boardSpaceShip() {
         System.out.println("Vehículo aereo no tripulado, no se requiere abordaje.");
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
