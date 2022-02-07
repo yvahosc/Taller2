@@ -40,35 +40,11 @@ public class Main {
                         System.out.println("Ya contamos con la nave y el lanzador para iniciar la misión, es tiempo de enviar la misión al espacio...");
                         
                         boolean boardSpaceShip = true;
-                        do{
-                            System.out.println("\n"+ "¿Qué hacemos ahora?, digite el número correspondiente:" + "\n" + "1. Cargar combustible en las naves" + "\n" + "2. Encender las naves" + "\n" + "3. Realizar el lanzamiento.");
-                            choice = leer.nextInt();
-                            if (choice == 1){
-                                spaceShip.reFuelSpaceShip();
-                                launcher.reFuelSpaceShip();
-                            }
-                            else if (choice == 2){
-                                spaceShip.turnOnSpaceShip();
-                                launcher.turnOnSpaceShip();
-                                choice = 1;
-                            }
-                            
-                            else if (choice == 3){
-                                boolean successfulLaunch;
-                                successfulLaunch = launcher.startSpaceShip(boardSpaceShip);
-                                if (successfulLaunch == false) {
-                                    choice = 1;
-                                }
-                            }
-                            else{
-                                choice = 1;
-                                System.out.println("Por favor digite un número válido.");
-                            }
-                        }
-                        while (choice == 1);
+                        startUnmannedSpaceShip(boardSpaceShip, spaceShip, launcher);
+                        
                     }
                     else{
-                        System.out.println("No es posible utilizar el lanzador " + launcher.name + " ya que la nave " + spaceShip.name + " excede su capacidad de transporte");
+                        System.out.println("No es posible utilizar el lanzador " + launcher.name + " ya que la nave " + spaceShip.name + " excede su capacidad de transporte.");
                     }
                 }
                 else if (choice == 2){
@@ -77,40 +53,16 @@ public class Main {
                     if (spaceShip.getWeightSpaceShip() < launcher.capacityTransport){
                         System.out.println("Nave: " + spaceShip.name + "\n" + "Origen: " + spaceShip.originCountry + "\n" + "Peso en toneladas: " + spaceShip.getWeightSpaceShip());
                         spaceShip.function();
-                        System.out.println("Lanzador: " + launcher.name + "\n" + "Origen: " + launcher.originCountry + "\n" + "Capacidad de transporte en toneladas: " + launcher.capacityTransport + "\n" + "combustible utilizado: " + launcher.fuelType + "\n");
+                        System.out.println("Lanzador: " + launcher.name + "\n" + "Origen: " + launcher.originCountry + "\n" + "Capacidad de transporte en toneladas: " + launcher.capacityTransport + "\n" + "combustible utilizado: " + launcher.fuelType);
                         spaceShip.function();
                         System.out.println("Ya contamos con la nave y el lanzador para iniciar la misión, es tiempo de enviar la misión al espacio...");
                         
                         boolean boardSpaceShip = true;
-                        do{
-                            System.out.println("\n"+ "¿Qué hacemos ahora?, digite el número correspondiente:" + "\n" + "1. Cargar combustible en las naves" + "\n" + "2. Encender las naves" + "\n" + "3. Realizar el lanzamiento.");
-                            choice = leer.nextInt();
-                            if (choice == 1){
-                                spaceShip.reFuelSpaceShip();
-                                launcher.reFuelSpaceShip();
-                            }
-                            else if (choice == 2){
-                                spaceShip.turnOnSpaceShip();
-                                launcher.turnOnSpaceShip();
-                                choice = 1;
-                            }
-                            
-                            else if (choice == 3){
-                                boolean successfulLaunch;
-                                successfulLaunch = launcher.startSpaceShip(boardSpaceShip);
-                                if (successfulLaunch == false) {
-                                    choice = 1;
-                                }
-                            }
-                            else{
-                                choice = 1;
-                                System.out.println("Por favor digite un número válido.");
-                            }
-                        }
-                        while (choice == 1);
+                        startUnmannedSpaceShip(boardSpaceShip, spaceShip, launcher);
+//                      
                     }
                     else{
-                        System.out.println("No es posible utilizar el lanzador " + launcher.name + " ya que la nave " + spaceShip.name + " excede su capacidad de transporte");
+                        System.out.println("No es posible utilizar el lanzador " + launcher.name + " ya que la nave " + spaceShip.name + " excede su capacidad de transporte.");
                     }
                 }
                 else{
@@ -133,37 +85,38 @@ public class Main {
                         System.out.println("Ya contamos con la nave y el lanzador para iniciar la misión, es tiempo de enviar la misión al espacio...");
                         
                         boolean boardSpaceShip = false;
-                        do{
-                            System.out.println("\n"+ "¿Qué hacemos ahora?, digite el número correspondiente:" + "\n" + "1. Cargar combustible en las naves" + "\n" + "2. Encender las naves" + "\n" + "3. Realizar el abordaje." + "\n" + "4. Realizar el lanzamiento.");
-                            choice = leer.nextInt();
-                            if (choice == 1){
-                                spaceShip.reFuelSpaceShip();
-                                launcher.reFuelSpaceShip();
-                            }
-                            else if (choice == 2){
-                                spaceShip.turnOnSpaceShip();
-                                launcher.turnOnSpaceShip();
-                                choice = 1;
-                            }
-                            else if (choice == 3){
-                                spaceShip.boardSpaceShip();
-                                boardSpaceShip = true;
-                                choice = 1;
-                            }
-                            else if (choice == 4){
-                                boolean successfulLaunch;
-                                successfulLaunch = launcher.startSpaceShip(boardSpaceShip);
-                                
-                                if (successfulLaunch == false) {
-                                    choice = 1;
-                                }
-                            }
-                            else{
-                                choice = 1;
-                                System.out.println("Por favor digite un número válido.");
-                            }
-                        }
-                        while (choice == 1);
+                        startMannedSpaceShip(boardSpaceShip, spaceShip, launcher);
+//                        do{
+//                            System.out.println("\n"+ "¿Qué hacemos ahora?, digite el número correspondiente:" + "\n" + "1. Cargar combustible en las naves" + "\n" + "2. Encender las naves" + "\n" + "3. Realizar el abordaje." + "\n" + "4. Realizar el lanzamiento.");
+//                            choice = leer.nextInt();
+//                            if (choice == 1){
+//                                spaceShip.reFuelSpaceShip();
+//                                launcher.reFuelSpaceShip();
+//                            }
+//                            else if (choice == 2){
+//                                spaceShip.turnOnSpaceShip();
+//                                launcher.turnOnSpaceShip();
+//                                choice = 1;
+//                            }
+//                            else if (choice == 3){
+//                                spaceShip.boardSpaceShip();
+//                                boardSpaceShip = true;
+//                                choice = 1;
+//                            }
+//                            else if (choice == 4){
+//                                boolean successfulLaunch;
+//                                successfulLaunch = launcher.startSpaceShip(boardSpaceShip);
+//                                
+//                                if (successfulLaunch == false) {
+//                                    choice = 1;
+//                                }
+//                            }
+//                            else{
+//                                choice = 1;
+//                                System.out.println("Por favor digite un número válido.");
+//                            }
+//                        }
+//                        while (choice == 1);
                     }
                     else{
                         System.out.println("No es posible utilizar el lanzador " + launcher.name + " ya que la nave " + spaceShip.name + " excede su capacidad de transporte");
@@ -180,37 +133,38 @@ public class Main {
                         System.out.println("Ya contamos con la nave y el lanzador para iniciar la misión, es tiempo de enviar la misión al espacio...");
                         
                         boolean boardSpaceShip = false;
-                        do{
-                            System.out.println("\n"+ "¿Qué hacemos ahora?, digite el número correspondiente:" + "\n" + "1. Cargar combustible en las naves" + "\n" + "2. Encender las naves" + "\n" + "3. Realizar el abordaje." + "\n" + "4. Realizar el lanzamiento.");
-                            choice = leer.nextInt();
-                            if (choice == 1){
-                                spaceShip.reFuelSpaceShip();
-                                launcher.reFuelSpaceShip();
-                            }
-                            else if (choice == 2){
-                                spaceShip.turnOnSpaceShip();
-                                launcher.turnOnSpaceShip();
-                                choice = 1;
-                            }
-                            else if (choice == 3){
-                                spaceShip.boardSpaceShip();
-                                boardSpaceShip = true;
-                                choice = 1;
-                            }
-                            else if (choice == 4){
-                                boolean successfulLaunch;
-                                successfulLaunch = launcher.startSpaceShip(boardSpaceShip);
-                                
-                                if (successfulLaunch == false) {
-                                    choice = 1;
-                                }
-                            }
-                            else{
-                                choice = 1;
-                                System.out.println("Por favor digite un número válido.");
-                            }
-                        }
-                        while (choice == 1);
+                        startMannedSpaceShip(boardSpaceShip, spaceShip, launcher);
+//                        do{
+//                            System.out.println("\n"+ "¿Qué hacemos ahora?, digite el número correspondiente:" + "\n" + "1. Cargar combustible en las naves" + "\n" + "2. Encender las naves" + "\n" + "3. Realizar el abordaje." + "\n" + "4. Realizar el lanzamiento.");
+//                            choice = leer.nextInt();
+//                            if (choice == 1){
+//                                spaceShip.reFuelSpaceShip();
+//                                launcher.reFuelSpaceShip();
+//                            }
+//                            else if (choice == 2){
+//                                spaceShip.turnOnSpaceShip();
+//                                launcher.turnOnSpaceShip();
+//                                choice = 1;
+//                            }
+//                            else if (choice == 3){
+//                                spaceShip.boardSpaceShip();
+//                                boardSpaceShip = true;
+//                                choice = 1;
+//                            }
+//                            else if (choice == 4){
+//                                boolean successfulLaunch;
+//                                successfulLaunch = launcher.startSpaceShip(boardSpaceShip);
+//                                
+//                                if (successfulLaunch == false) {
+//                                    choice = 1;
+//                                }
+//                            }
+//                            else{
+//                                choice = 1;
+//                                System.out.println("Por favor digite un número válido.");
+//                            }
+//                        }
+//                        while (choice == 1);
                     }
                     else{
                         System.out.println("No es posible utilizar el lanzador " + launcher.name + " ya que la nave " + spaceShip.name + " excede su capacidad de transporte");
@@ -266,5 +220,72 @@ public class Main {
         }
         while (choice == 1);
         return null;
+    }
+    
+    public static void startUnmannedSpaceShip (boolean boardSpaceShip, unmannedSpaceShip spaceShip, LauncherSpaceShip launcher) throws InterruptedException{
+        Scanner leer = new Scanner(System.in);
+        int choice;
+        do{
+            System.out.println("\n"+ "¿Qué hacemos ahora?, digite el número correspondiente:" + "\n" + "1. Cargar combustible en las naves" + "\n" + "2. Encender las naves" + "\n" + "3. Realizar el lanzamiento.");
+            choice = leer.nextInt();
+            if (choice == 1){
+                spaceShip.reFuelSpaceShip();
+                launcher.reFuelSpaceShip();
+            }
+            else if (choice == 2){
+                spaceShip.turnOnSpaceShip();
+                launcher.turnOnSpaceShip();
+                choice = 1;
+            }
+
+            else if (choice == 3){
+                boolean successfulLaunch;
+                successfulLaunch = launcher.startSpaceShip(boardSpaceShip);
+                if (successfulLaunch == false) {
+                    choice = 1;
+                }
+            }
+            else{
+                choice = 1;
+                System.out.println("Por favor digite un número válido.");
+            }
+        }
+        while (choice == 1);
+    }
+    
+    public static void startMannedSpaceShip (boolean boardSpaceShip, MannedSpaceShip spaceShip, LauncherSpaceShip launcher) throws InterruptedException{
+        Scanner leer = new Scanner(System.in);
+        int choice;
+        do{
+            System.out.println("\n"+ "¿Qué hacemos ahora?, digite el número correspondiente:" + "\n" + "1. Cargar combustible en las naves" + "\n" + "2. Encender las naves" + "\n" + "3. Realizar el abordaje." + "\n" + "4. Realizar el lanzamiento.");
+            choice = leer.nextInt();
+            if (choice == 1){
+                spaceShip.reFuelSpaceShip();
+                launcher.reFuelSpaceShip();
+            }
+            else if (choice == 2){
+                spaceShip.turnOnSpaceShip();
+                launcher.turnOnSpaceShip();
+                choice = 1;
+            }
+            else if (choice == 3){
+                spaceShip.boardSpaceShip();
+                boardSpaceShip = true;
+                choice = 1;
+            }
+            else if (choice == 4){
+                boolean successfulLaunch;
+                successfulLaunch = launcher.startSpaceShip(boardSpaceShip);
+
+                if (successfulLaunch == false) {
+                    choice = 1;
+                }
+            }
+            else{
+                choice = 1;
+                System.out.println("Por favor digite un número válido.");
+            }
+        }
+        while (choice == 1);
     }
 }
