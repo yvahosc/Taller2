@@ -1,2 +1,19 @@
 # Taller2
-Este repositorio se creó para el desarrollo del taller práctico correspondiente a diseño y programación: Abstracciones, interfaces y polimorfismo
+## Este repositorio se creó para el desarrollo del taller práctico correspondiente a diseño y programación: Abstracciones, interfaces y polimorfismo
+
+### En estos archivos se tienen:
+* Un paquete para las interfaces:
+  > Una interface con la declaración de dos métodos: uno para cargar el combustible a las naves y otro para encender las naves.
+* Un paquete para las clases:
+  > Una abstracta con los atributos generales de las naves espaciales (nombre, país de origen, peso, año de creación, tipo de combustible empleado, cargue de combustible y encendido de la nave y sus métodos get y set), dos métodos abstractos (función, el cual permite conocer el objetivo o función de la nave y abordaje, el cual permite realizar el proceso de abordaje a la nave).
+  > Una clase para las naves lanzadoras que extiende de la clase abstracta e implementa la interface, con sus propios atributos (El peso que la nave es capaz de lanzar al espacio y el empuje, con sus métodos get y set), con la implementación y sobreescritura de los métodos función, recarga de combustible, encendido y abordaje, además de un método propio para el despegue de la nave lanzadora junto a la nave de la misión.
+  > Una clase para las naves no tripuladas que extiende de la clase abstracta e implementa la interface, con sus propios atributos (La capacidad de abordaje y la nave lanzadora que utliza para el despegue, con sus métodos get y set), con la implementación y sobreescritura de los métodos función, recarga de combustible, encendido y abordaje.
+  > Una clase para las naves tripuladas que extiende de la clase abstracta e implementa la interface, con sus propios atributos (El empuje de la nave y la nave lanzadora que utliza para el despegue, con sus métodos get y set), con la implementación y sobreescritura de los métodos función, recarga de combustible, encendido y abordaje.
+
+Todas las clases contienen un constructor con todos sus atributos y los de la clase de la que extienden.
+
+* Un paquete para la clase principal:
+
+> Esta clase hace que a partir de la interacción con el usuario (a traves de un ciclo hacer - mientras) este pueda crear sus propias misiones al espacio, eligiendo su nave para misión (tripulada o no) y eligiendo su nave lanzadora, para posteriormente con estas realizar el proceso de lanzamiento al espacio realizando los procedimientos de cargue de combustible, encendido, abordaje si es necesario y el lanzamiento, todo esto mientras la información va siendo mostrada al usuario por consola.
+
+## Es posible ejecutar el código a traves de un IDE descargando el proyecto, extrayéndolo del archivo .ZIP, abriéndolo en el IDE y ejecutándolo o a través de CMD descargando el proyecto, extrayéndolo del archivo .ZIP, abriendo CMD, yendo a la carpeta dist del proyecto (utilizando el comando cd espacio la dirección de ubicación de la carpeta dist del proyecto) y ejecutando el comando java -jar (nombre del archivo .jar), que en este caso sería java -jar Taller_2.jar
