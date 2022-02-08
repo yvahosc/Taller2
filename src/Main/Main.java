@@ -11,7 +11,9 @@ import Clases.unmannedSpaceShip;
 import java.util.Scanner;
 
 /**
- *
+ * Representa la clase principal del código en la que se instancian dos naves espaciales lanzadoras, dos naves espaciales no tripuladas y dos naves espaciales tripuladas, 
+ * se crea un programa en el que de manera interactiva el usuario crea y lanza misiones al espacio, definiendo las naves a utilizar
+ * y realizando los procedimientos de cargue de combustible, encendido, abordaje y lanzamiento de las naves al espacio.
  * @author Yeisson Vahos Cortes
  */
 public class Main {
@@ -22,6 +24,11 @@ public class Main {
     public static void main(String[] args) throws InterruptedException {
         String input;
         int choice;
+        
+        /**
+         * Ciclo hacer - mientras, que utilizando información suministrada por el usuario le permite crear misiones al espacio, elegir las naves que utilizará (tripuladas o no) con su respectiva nave lanzadora
+         * y realizar el proceso de lanzamiento cargando el combustible a las naves, encendiéndolas, abordándolas si es necesario y realizando el despegue.
+         */
         do{
             System.out.println("¿Que misión desea iniciar?, digite el número correspondiente:" + "\n" + "1. Misión no tripulada." + "\n" + "2. Misión tripulada.");
             
@@ -142,6 +149,10 @@ public class Main {
         // TODO code application logic here
     }
     
+    /**
+     * Método que a partir de la información proporcionada por el usuario crea un objeto de la clase nave espacial lanzadora que se va a utilizar en la misión al espacio.
+     * @return un objeto de la clase nave espacial lanzadora con toda su información.
+     */
     public static LauncherSpaceShip launcher(){
         System.out.println("¿Qué nave lanzadora desea utilizar?, digite el número correspondiente:" + "\n" + "1. Saturno V." + "\n" + "2. Energia.");
         String input;
@@ -169,6 +180,13 @@ public class Main {
         return null;
     }
     
+    /**
+     * Método que realiza el proceso de lanzamiento de la misión al espacio, verificando que antes se haga el cargue de combustible y se encienda la nave espacial.
+     * @param boardSpaceShip Verifica que estado del proceso de abordar la nave de la misión.
+     * @param spaceShip Objeto de la clase nave espacial no tripulada que almacena la información de la nave utilizada para la misión.
+     * @param launcher Objeto de la clase nave espacial lanzadora que almacena la información de la nave de tipo lanzadora utilizada para la misión.
+     * @throws InterruptedException Control de posible excepción por el uso del método thread.sleep
+     */
     public static void startUnmannedSpaceShip (boolean boardSpaceShip, unmannedSpaceShip spaceShip, LauncherSpaceShip launcher) throws InterruptedException{
         Scanner leer = new Scanner(System.in);
         String input;
@@ -202,6 +220,13 @@ public class Main {
         while (choice == 1);
     }
     
+    /**
+     * Método que realiza el proceso de lanzamiento de la misión al espacio, verificando que antes se haga el cargue de combustible, se encienda y se aborde la nave espacial.
+     * @param boardSpaceShip Verifica que estado del proceso de abordar la nave de la misión.
+     * @param spaceShip Objeto de la clase nave espacial tripulada que almacena la información de la nave utilizada para la misión.
+     * @param launcher Objeto de la clase nave espacial lanzadora que almacena la información de la nave de tipo lanzadora utilizada para la misión.
+     * @throws InterruptedException Control de posible excepción por el uso del método thread.sleep
+     */
     public static void startMannedSpaceShip (boolean boardSpaceShip, MannedSpaceShip spaceShip, LauncherSpaceShip launcher) throws InterruptedException{
         Scanner leer = new Scanner(System.in);
         String input;
@@ -240,6 +265,11 @@ public class Main {
         while (choice == 1);
     }
     
+    /**
+     * Método que recibe un string (ingresado por el usuario) y evalua si este puede ser convertido a entero y si no es posible captura la excepción.
+     * @param input Valor que se recibe por consola por parte del usuario para la construcción y lanzamiento de misiones al espacio.
+     * @return Un número entero el cual puede manejarse dentro del método principal para la interacción con el usuario en la construcción y lanzamiento de misiones al espacio.
+     */
     public static int consoleInputVerification (String input){
         try{
             int choice;
